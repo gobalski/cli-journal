@@ -1,0 +1,34 @@
+* cli-journal
+I created this project while I was learning Python. It is a rude implementation of a journal inside the commandline interface. You can create, browse and edit entries, which are stored in an encrypted text file, and even search for terms. It requieres an cli edito. By now it was only tested with vim.
+The database is just an encrypted textfile, so by no means an envolved implementation. Furthermore the implementation of the encryption is equally rudimentary, so don't expect the script to handle more advanced security issues.
+
+** Usage
+Navigate to the folder you copied this repository and run
+#+BEGIN_SRC <bash>
+    $ journal.py [MODE] journal_file [KEYS]
+#+END_SRC
+
+[MODE] can be either -e, -b or -p, for edit, browse or setPassword.
+
+If no mode is passed, the default mode, the browse mode will be launched. If the script does not find the journal file, it will create a new one and prompt you to set a password.
+
+*** Edit mode
+[KEYS] can be set to a date (YYYY-MM-DD). If no date is given the date of the current day is assumed. Any additional parameters will be ignored.
+
+This enters edit mode, which opens the editor and the entry for the specified date. This will create a new entry, if there is not one already.
+
+*** Browse mode
+This is the default mode.
+[KEYS] is a list of none up to two dates (YYYY-MM-DD) and search terms.
+
+If one date is given, the entry of that date will open or if it doesn't exist you can create it.
+Two dates cause the script to show only the entries in the range between those dates.
+Additional search terms filter the displayed entries further, only entries where these terms occur are displayed. This works with any number of dates specified.
+
+*** setPassword
+This sets a new password for the given journal file.
+
+*** TODO
+- properly delete temporary file (overwrite it first)
+- add a function to exit without saving.
+- highlight searchterms
