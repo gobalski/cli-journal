@@ -27,8 +27,3 @@ Additional search terms filter the displayed entries further, only entries where
 
 *** setPassword
 This sets a new password for the given journal file.
-
-*** TODO
-- properly delete temporary file (overwrite it first)
-- add a function to exit without saving.
-- highlight searchterms
